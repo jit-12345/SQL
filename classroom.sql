@@ -1,0 +1,55 @@
+CREATE DATABASE IF NOT EXISTS google;
+USE google;
+CREATE TABLE employee(
+id INT PRIMARY KEY,
+name VARCHAR(50),
+salary INT NOT NULL
+);
+INSERT INTO employee
+(id,name,salary)
+VALUES
+(1,"JIT",40000),
+(2,"TUHIN",40000),
+(3,"DABU",40000);
+
+SELECT*FROM employee;
+
+CREATE TABLE IF NOT EXISTS temp1(
+id INT UNIQUE
+);
+INSERT INTO temp1 VALUES("101");
+INSERT INTO temp1
+(id)
+VALUES
+(103),
+(102);
+INSERT INTO temp1 VALUES(101);
+
+CREATE DATABASE IF NOT EXISTS temp2;
+
+USE temp2;
+
+CREATE TABLE IF NOT EXISTS student(
+id INT,
+name VARCHAR(50),
+age INT,
+PRIMARY KEY(id,name)
+);
+INSERT INTO student
+(id,name,age)
+VALUES
+(17,"JIT",22),
+(11,"IPSITA",25),
+(17,"PRABIR",56),
+(11,"SRABANTI",46);
+
+SELECT *FROM student;
+
+CREATE TABLE IF NOT EXISTS emp(
+id INT,
+salary INT DEFAULT 25000
+);
+INSERT INTO emp(id) VALUES(101);
+INSERT INTO emp VALUES (102,15000);
+SELECT*FROM emp;
+
