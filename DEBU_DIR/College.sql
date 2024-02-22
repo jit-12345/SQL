@@ -10,7 +10,7 @@ CREATE TABLE student(
     age INT NOT NULL
 );
 
-INSERT INTO student VALUES( 1 , "JAY-Z" , 21);
+INSERT INTO student VALUES( 1 , "DEBU" , 21);
 INSERT INTO student VALUES( 2 , "J COLE" , 27);
 INSERT INTO student VALUES( 3 , "KENDRICK" , 30);
 
