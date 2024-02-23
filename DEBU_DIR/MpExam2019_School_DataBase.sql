@@ -60,3 +60,5 @@ WHERE grade IN ("A++");
 SELECT *
 FROM MpBatch_2019
 WHERE grade NOT IN ("A++");
+
+-- Start Here From "LIMIT CLAUSE"
