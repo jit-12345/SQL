@@ -7,19 +7,20 @@ CREATE TABLE MpBatch_2019( -- U can create more col for more info.
 	rollNo INT PRIMARY KEY,
     name VARCHAR(50),
     marks INT NOT NULL,
-    grade VARCHAR(3)
+    grade VARCHAR(3),
+    vill VARCHAR(50)
 );
 
 INSERT INTO MpBatch_2019
-(rollNo,name,marks,grade)
+(rollNo,name,marks,grade, vill)
 VALUES
-(1,"Debu",84,"A"),
-(2,"Kuntal",95,"A+"),
-(3,"Arpan",99,"A++"),
-(4,"Subho",91,"A+"),
-(5,"Chitra",98,"A++"),
-(6,"Kiran",70,"B"),
-(7,"Santosh",90,"A+");
+(1,"Debu",84,"A", "Santipur"),
+(2,"Kuntal",95,"A+", "Pandugram"),
+(3,"Arpan",99,"A++","Bhatshala"),
+(4,"Subho",91,"A+","Bhatshala"),
+(5,"Chitra",98,"A++","Bhatshala"),
+(6,"Kiran",70,"B","Jharia"),
+(7,"Santosh",90,"A+","Jharia");
 
 DROP TABLE MpBatch_2019; -- i need to run this line coz i have to change the grade char size.
 
@@ -61,4 +62,60 @@ SELECT *
 FROM MpBatch_2019
 WHERE grade NOT IN ("A++");
 
--- Start Here From "LIMIT CLAUSE"
+
+-- Limit Clause. In here we also use WHERE Clause.
+SELECT * 
+FROM MpBatch_2019 
+WHERE marks > 90
+LIMIT 3;
+
+
+-- Order By Clause.
+-- Some times we need data Acendeing order or may be Decending Order.
+SELECT * 
+FROM MpBatch_2019
+ORDER BY name ASC;
+
+-- I want top 3 student in our school.
+
+SELECT * 
+FROM MpBatch_2019
+ORDER BY marks DESC
+LIMIT 3;
+
+
+
+-- FUNCTION ARE START FROM HERE "AGGREGATE FUNCTION"     -----
+
+-- Calculate the maximum marks in my table.
+
+SELECT MAX(marks)
+FROM MpBatch_2019;  -- same way cal the MINI
+
+-- Calculate the Avrage Marks in Our Batch.
+SELECT AVG(marks)
+FROM MpBatch_2019;
+
+-- Cal how many student in our batch.
+SELECT COUNT(name)
+FROM MpBatch_2019;
+
+-- GROUP BY Clause---
+
+SELECT vill , COUNT(name)   -- Now i want to know how many students are learning from a particular village.
+FROM MpBatch_2019          -- So , i find out how many student are learning base on Name
+GROUP BY vill;
+
+
+SELECT vill ,name, COUNT(name)  -- You can pass multiple varriable. 
+FROM MpBatch_2019        
+GROUP BY vill, name;
+
+
+-- Average marks in each village.
+SELECT vill , AVG(marks)
+FROM MpBatch_2019 
+GROUP BY vill;
+
+
+
