@@ -106,7 +106,7 @@ SELECT vill , COUNT(name)   -- Now i want to know how many students are learning
 FROM MpBatch_2019          -- So , i find out how many student are learning base on Name
 GROUP BY vill;
 
-
+ 
 SELECT vill ,name, COUNT(name)  -- You can pass multiple varriable. 
 FROM MpBatch_2019        
 GROUP BY vill, name;
@@ -117,5 +117,67 @@ SELECT vill , AVG(marks)
 FROM MpBatch_2019 
 GROUP BY vill;
 
+-- Having Caluse
+-- Similar as WHERE Clause apply condition on row.
+
+-- Q: Count the number of student in each village where maximum number is cross 90
+
+SELECT vill , count(rollNo)
+FROM MpBatch_2019
+GROUP BY vill
+HAVING MAX(marks>90);
+
+-- Some General Order .
+-- SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY (ASC)
+
+SELECT vill
+FROM MpBatch_2019
+WHERE grade = "A+"
+GROUP BY vill
+HAVING MAX(marks>90)
+ORDER BY vill DESC;
+
+-- Table Related Quries.
+
+-- UPDATE 
+-- SET
+-- WHERE
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE MpBatch_2019
+SET grade = "O"
+WHERE grade = "A++";
+
+-- Suppose rollNumber(6) Review and his marks got increase so, i will update his marks in my database.
+UPDATE MpBatch_2019
+SET marks = 88
+WHERE rollNo = 6;
+ 
+UPDATE MpBatch_2019
+SET grade = "A+"
+WHERE rollNo = 6;
 
 
+UPDATE MpBatch_2019
+SET grade = "B"
+WHERE marks BETWEEN 79 AND 89;
+
+
+-- Like in exam 1 question is wrong so, School decided that increase each student marks 1.
+UPDATE MpBatch_2019
+SET marks = marks+1;
+
+
+
+-- DELETE QUEARY
+
+DELETE FROM MpBatch_2019
+WHERE marks <30;
+
+-- no one contain marks 30 , so i update anyone marks.
+UPDATE MpBatch_2019
+SET marks = 25
+WHERE rollNo = 6;
+
+SELECT * FROM MpBatch_2019;
