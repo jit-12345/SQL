@@ -32,7 +32,7 @@ To contribute to this project, follow these steps:
 
 Please ensure that your code follows the project's coding guidelines and includes appropriate tests.
 
-Happy contributing!
+Happy contributing!☺
 # 
 
 
